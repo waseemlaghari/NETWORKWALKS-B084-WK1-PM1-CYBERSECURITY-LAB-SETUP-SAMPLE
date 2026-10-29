@@ -106,9 +106,126 @@ Network:     cyberintern
 
 The VM was allocated:
 
-RAM: 6615 MB
+>RAM: 6615 MB
 
 ---------------------------------
 
+<img width="1122" height="716" alt="kali_ready" src="https://github.com/user-attachments/assets/f2d85343-fe59-443b-8649-642f2b1f60f2" />
+A shared folder was also configured for transferring required files between the host operating system and the Kali VM.
+
+-------------------------------------
+
+Step 5. Configure the Kali Linux Network
+-------------------------------
+
+Example configuration:
+>IP Address: 10.0.0.2
+>Subnet Mask: 255.255.255.0
+>Gateway: 10.0.0.1
+>DNS: 8.8.8.8
+
+<img width="637" height="683" alt="kali_network_setting" src="https://github.com/user-attachments/assets/2af46872-2a62-4d5e-8331-854378be9093" />
+
+Internet is also working inside Kali Linux
+
+<img width="1279" height="674" alt="internet_working" src="https://github.com/user-attachments/assets/aeb4d949-3db0-433e-9f5f-d86ed89c4bcd" />
 
 
+--------------------------------------
+
+Step 6. Create a Clean VM Snapshot
+------------------
+
+After completing the initial configuration, a VirtualBox snapshot was created.
+
+Example snapshot name:
+
+>FirstKali
+
+If a future exercise changes or damages the VM configuration, the machine can be restored to this baseline.
+
+------------------------
+
+Lab Verification
+---------------------
+
+✅ Test	🧾 Command	🎯 Expected Result
+🌐 Check IP address	ip a	Correct Kali IP displayed
+📡 Test gateway	ping 10.0.0.1	Successful replies
+🌍 Test Internet connectivity	ping 8.8.8.8	Successful replies
+🔎 Test DNS resolution	nslookup networkwalks.com	Domain resolves
+🧰 Verify Nmap	nmap --version	Nmap version displayed
+🔄 Verify snapshot	Restore snapshot and run ip a	Baseline configuration restored
+
+Results
+>IP Address:
+>10.0.0.2/24
+
+>Gateway:
+>10.0.0.1
+
+>DNS:
+>8.8.8.8
+
+----------------------------
+
+🐞 Problems Encountered & Solutions
+--------------------------
+
+ Internet Connectivity After Static IP Configuration
+ ----------------
+
+ There was problem with the ip as we assign it static so we run this command to overcome this
+ >sudo nmcli connection modify "Wired connection 1" ipv4.dad-timeout 0
+
+
+---------------------------
+
+💡 What I Learned
+------------------
+
+Through this project, I built and configured an isolated virtual environment for cybersecurity practice, gaining hands-on experience with hypervisors, network segmentation, and system recovery.
+
+1. NAT vs NAT Network
+While both configurations provide external internet access, they serve different structural purposes:
+Standard NAT: Isolates individual VMs from the host and each other.
+NAT Network: Creates a shared internal network where multiple VMs can communicate with each other, making it the ideal foundation for a multi-machine cybersecurity lab.
+
+2. Virtual Machine Networking
+I gained practical experience configuring VirtualBox network adapters to control VM connectivity and network isolation.
+
+3. Static IP Configuration
+I gained hands-on proficiency in network configuration by manually setting up and verifying IPv4 parameters within Kali Linux. This included configuring static IP addresses, subnet masks, default gateways, and DNS settings to ensure proper network alignment and connectivity.
+
+4. VM Snapshots
+I integrated virtual machine snapshot strategies to safeguard the laboratory environment
+
+5. Documentation
+I realized that maintaining clear records of commands, settings, screenshots, issues encountered, and troubleshooting steps is a key part of professional cybersecurity work.
+
+
+--------------------------------
+
+
+Tools & Resources
+--------------------
+
+>7-Zip: https://7-zip.org/download.html
+>VirtualBox: https://virtualbox.org/wiki/Downloads
+>Kali Linux: https://kali.org/get-kali
+
+----------------------------------
+
+👤 Author
+-------------
+Waseem Laghari
+Cybersecurity Professional B084
+
+LinkedIn: https://www.linkedin.com/in/waseemlaghari/
+
+----------------------
+
+📌 Project Information
+-----------
+
+Program Name: Cybersecurity at Networkwalks | Week: 01 | Project: Cybersecurity & Pentesting Lab Setup | Repository: GitHub
