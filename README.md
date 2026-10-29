@@ -210,8 +210,8 @@ I realized that maintaining clear records of commands, settings, screenshots, is
 Tools & Resources
 --------------------
 
->7-Zip: https://7-zip.org/download.html
->VirtualBox: https://virtualbox.org/wiki/Downloads
+>7-Zip: https://7-zip.org/download.html <br />
+>VirtualBox: https://virtualbox.org/wiki/Downloads <br />
 >Kali Linux: https://kali.org/get-kali
 
 ----------------------------------
